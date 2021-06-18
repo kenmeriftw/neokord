@@ -1,0 +1,9 @@
+<h1>Hello!</h1>
+<h2>Please enter some number here: </h2>
+
+<%= form_with model: @fib_num do |form| %>
+  <%= form.number_field :input_number %>
+  <%= form.submit %>
+<% end %>
+
+

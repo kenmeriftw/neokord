@@ -9,6 +9,7 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'bootsnap'
+gem 'closest_fibonacci'
 
 group :development, :test do
   gem 'pry-rails'
