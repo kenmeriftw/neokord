@@ -9,12 +9,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="number-panel">
-  <%= form_with model: @fib_num do |form| %>
-    <%= form.label 'Enter a number here' %>
-    <%= form.number_field :input_number, class: 'form-control' %>
-    <%= form.button 'RUN', class: 'btn btn-outline-success', remote: true %>
-  <% end %>
-    <%= render 'fibonacci_numbers/fib_num_output' %>
+
+  <div>
+    <%= form_with(model: @fib_num, id: 'number-panel', local: false) do |form| %>
+      <%= form.label 'Enter a number here' %>
+      <%= form.number_field :input_number, class: 'form-control' %>
+      <%= form.button 'RUN', class: 'btn btn-outline-success' %>
+      
+    <% end %>
+  </div>
+
+  <div class="part">
+    <%= render 'items' %>
   </div>
 </main>
