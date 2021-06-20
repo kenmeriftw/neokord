@@ -1,9 +1,24 @@
-<h1>Hello!</h1>
+<main class="container">
+
 <h2>Please enter some number here: </h2>
+  
+  <% if @fib_num.errors.any? %>
+    <div class="form-errors">
+      <ul>
+        <% for message in @fib_num.errors.full_messages %>
+          <li class="form-error-message"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_with model: @fib_num do |form| %>
-  <%= form.number_field :input_number %>
-  <%= form.submit %>
-<% end %>
+  <%= form_with model: @fib_num do |form| %>
+    <%= form.label 'Input number' %>
+    <%= form.number_field :input_number, class: 'form-control' %>
+    <%= form.button 'RUN', class: 'btn btn-outline-success' %>
+  <% end %>
 
-
+  <div class="output_panel">
+    <%= render 'fibonacci_numbers/fib_num_output' %>
+  </div>
+</main>

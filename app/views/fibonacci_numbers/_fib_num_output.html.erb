@@ -1,0 +1,4 @@
+<%= form_with model: FibonacciNumber.last, remote: true do |form| %>
+  <%= form.label "Output number for #{FibonacciNumber.last&.input_number} is " %>
+  <%= form.number_field :output_number, class: 'form-control' %>  
+<% end %>
