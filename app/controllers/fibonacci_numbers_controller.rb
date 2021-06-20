@@ -1,12 +1,18 @@
 class FibonacciNumbersController < ApplicationController
   def new
     @fib_num = FibonacciNumber.new
+    respond_to :html, :js
   end
 
   def create
     @fib_num = FibonacciNumber.new(fib_num_params)
-    @fib_num.output_number = @fib_num.update(output_number: @fib_num.input_number.closest_fibonacci)
-    redirect_to root_path
+    if @fib_num.save
+      @fib_num.output_number = @fib_num.update(output_number: @fib_num.input_number.closest_fibonacci)
+      # redirect_to root_path
+      
+    else
+      redirect_to root_path
+    end
   end
 
   def show

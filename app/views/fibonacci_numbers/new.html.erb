@@ -1,7 +1,5 @@
 <main class="container">
 
-<h2>Please enter some number here: </h2>
-  
   <% if @fib_num.errors.any? %>
     <div class="form-errors">
       <ul>
@@ -11,14 +9,12 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="number-panel">
   <%= form_with model: @fib_num do |form| %>
-    <%= form.label 'Input number' %>
+    <%= form.label 'Enter a number here' %>
     <%= form.number_field :input_number, class: 'form-control' %>
-    <%= form.button 'RUN', class: 'btn btn-outline-success' %>
+    <%= form.button 'RUN', class: 'btn btn-outline-success', remote: true %>
   <% end %>
-
-  <div class="output_panel">
     <%= render 'fibonacci_numbers/fib_num_output' %>
   </div>
 </main>
